@@ -12,6 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "alwaysStrict": true,
+    "skipLibCheck": true,
     "newLine": "lf"
   },
   "lib": [
