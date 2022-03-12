@@ -3,6 +3,12 @@
     "target": "es2022",
     "module": "commonjs",
     "rootDir": "src",
+    "baseUrl": "src",
+    "paths": {
+      "@*": [
+        "*"
+      ]
+    },
     "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
@@ -19,8 +25,8 @@
     "es2022"
   ],
   "include": [
-    "src/**/*",
-    "test/**/*"
+    "src",
+    "test"
   ],
   "exclude": [
     "node_modules"

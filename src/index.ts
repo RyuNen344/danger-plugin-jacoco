@@ -1,22 +1,20 @@
-console.log("Hello!");
-console.log("Hello!");
-console.log("Hello!Hoge");
+import { XMLParser } from 'fast-xml-parser';
+import * as fs from 'fs';
+import { JacocoXmlConverter } from '@model/xml/jacoco/jacoco_xml_converter';
+import { Logger } from "tslog";
 
-const profile = { name: "soarflat", sex: "male", location: "Tokyo" };
+const log: Logger = new Logger();
+const parser: XMLParser = new XMLParser({
+    ignoreAttributes: false,
+    attributeNamePrefix: "@_",
+    allowBooleanAttributes: true
+});
 
-const fooBar = (a: number, b: string, c: typeof profile) => {
-    console.log(a);
-    console.log(b);
-    console.log(c);
-};
+log.debug("debug log");
 
-fooBar(111, "hoge!", profile);
+const xmlReport = fs.readFileSync("test/resource/jacocoMergedReport.xml")
 
-interface Person {
-    firstName: string;
-    lastName: string;
-}
-
-function greeter(person: Person): string {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
+let parsed = JSON.stringify(parser.parse(xmlReport));
+fs.writeFileSync("output.json", parsed);
+const jacocoXML = JacocoXmlConverter.toJacocoXML(parsed);
+log.debug(jacocoXML.report.counter.length);
