@@ -6,7 +6,10 @@ node_modules/
 .yarn/install-state.gz
 
 # build
-dist
+dist/
+
+# test
+coverage/
 
 # mac
 .DS_Store

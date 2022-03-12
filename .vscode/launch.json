@@ -1,0 +1,50 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "build",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "yarn",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": [
+        "build",
+        "&&",
+        "yarn",
+        "node",
+        "./dist/index.js"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "build:dev",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "yarn",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": [
+        "build:dev"
+      ],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "vscode-jest-tests.v2",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "yarn",
+      "args": [
+        "test",
+        "--runInBand",
+        "--watchAll=false",
+        "--testNamePattern",
+        "${jest.testNamePattern}",
+        "--runTestsByPath",
+        "${jest.testFile}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+    }
+  ]
+}
