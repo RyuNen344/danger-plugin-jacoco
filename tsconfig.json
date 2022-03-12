@@ -6,22 +6,28 @@
     "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
     "outDir": "dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "alwaysStrict": true,
-    "skipLibCheck": true
+    "newLine": "lf"
   },
   "lib": [
     "es2022"
   ],
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
+    "src/**/*",
+    "test/**/*"
   ],
   "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "node_modules"
+  ],
+  "typedocOptions": {
+    "entryPoints": [
+      "src/index.ts"
+    ],
+    "out": "docs"
+  }
 }
