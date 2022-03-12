@@ -2,5 +2,12 @@
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.preferences.importModuleSpecifier": "non-relative"
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "jest.autoRun": "on",
+  "jest.debugCodeLens.showWhenTestStateIn": [
+    "fail",
+    "pass",
+    "unknown"
+  ],
+  "jest.jestCommandLine": "yarn test"
 }
