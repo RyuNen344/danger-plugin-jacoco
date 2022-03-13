@@ -1,25 +1,25 @@
+import { JaCoCo } from "@/model/jacoco/jacoco";
+
 // To parse this data:
 //
-//   import { Convert, JacocoXML } from "./file";
-//
-//   const jacocoXML = Convert.toJacocoXML(json);
+//   const jaCoCo = JaCoCoMapper.toJaCoCo(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 //
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
+//
+// JaCoCo xml definition is below
 // https://www.jacoco.org/jacoco/trunk/coverage/report.dtd
-
-import { JacocoXML } from "@/model/xml/jacoco/jacoco_xml";
-
-export class JacocoXmlConverter {
-    public static toJacocoXML(json: string): JacocoXML {
-        return cast(JSON.parse(json), r("JacocoXML"));
+//
+export class JaCoCoMapper {
+    public static toJaCoCo(json: string): JaCoCo {
+        return cast(JSON.parse(json), r("JaCoCo"));
     }
 
-    public static jacocoXMLToJson(value: JacocoXML): string {
-        return JSON.stringify(uncast(value, r("JacocoXML")), null, 2);
+    public static jaCoCoToJson(value: JaCoCo): string {
+        return JSON.stringify(uncast(value, r("JaCoCo")), null, 2);
     }
 }
 
@@ -71,6 +71,14 @@ function transform(val: any, typ: any, getProps: any, key: any = ''): any {
         return invalidValue(cases, val);
     }
 
+    function transformForceArray(typ: any, val: any) {
+        if (!Array.isArray(val)) {
+            return [transform(val, typ, getProps)]
+        } else {
+            return val.map(el => transform(el, typ, getProps));
+        }
+    }
+
     function transformArray(typ: any, val: any): any {
         // val must be an array with no invalid elements
         if (!Array.isArray(val)) return invalidValue("array", val);
@@ -118,9 +126,10 @@ function transform(val: any, typ: any, getProps: any, key: any = ''): any {
     if (Array.isArray(typ)) return transformEnum(typ, val);
     if (typeof typ === "object") {
         return typ.hasOwnProperty("unionMembers") ? transformUnion(typ.unionMembers, val)
-            : typ.hasOwnProperty("arrayItems") ? transformArray(typ.arrayItems, val)
-                : typ.hasOwnProperty("props") ? transformObject(getProps(typ), typ.additional, val)
-                    : invalidValue(typ, val);
+            : typ.hasOwnProperty("forceArrayItems") ? transformForceArray(typ.forceArrayItems, val)
+                : typ.hasOwnProperty("arrayItems") ? transformArray(typ.arrayItems, val)
+                    : typ.hasOwnProperty("props") ? transformObject(getProps(typ), typ.additional, val)
+                        : invalidValue(typ, val);
     }
     // Numbers can be parsed by Date but shouldn't be.
     if (typ === Date && typeof val !== "number") return transformDate(val);
@@ -137,6 +146,10 @@ function uncast<T>(val: T, typ: any): any {
 
 function a(typ: any) {
     return { arrayItems: typ };
+}
+
+function fa(typ: any) {
+    return { forceArrayItems: typ }
 }
 
 function u(...typs: any[]) {
@@ -156,67 +169,67 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "JacocoXML": o([
-        { json: "?xml", js: "?xml", typ: r("XML") },
+    "JaCoCo": o([
+        { json: "?xml", js: "xml", typ: r("XML") },
         { json: "report", js: "report", typ: r("Report") },
     ], false),
-    "XML": o([
-        { json: "@_version", js: "@_version", typ: "" },
-        { json: "@_encoding", js: "@_encoding", typ: "" },
-        { json: "@_standalone", js: "@_standalone", typ: "" },
-    ], false),
     "Report": o([
-        { json: "@_name", js: "@_name", typ: "" },
-        { json: "sessioninfo", js: "sessioninfo", typ: u(undefined, a(r("Sessioninfo")), r("Sessioninfo")) },
-        { json: "group", js: "group", typ: u(undefined, a(r("Group")), r("Group")) },
-        { json: "package", js: "package", typ: u(undefined, a(r("Package")), r("Package")) },
-        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
-    ], false),
-    "Sessioninfo": o([
-        { json: "@_id", js: "@_id", typ: "" },
-        { json: "@_start", js: "@_start", typ: "" },
-        { json: "@_dump", js: "@_dump", typ: "" },
-    ], false),
-    "Group": o([
-        { json: "@_name", js: "@_name", typ: "" },
-        { json: "group", js: "group", typ: u(undefined, a(r("Group")), r("Group")) },
-        { json: "package", js: "package", typ: u(undefined, a(r("Package")), r("Package")) },
-        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
-    ], false),
-    "Package": o([
-        { json: "@_name", js: "@_name", typ: "" },
-        { json: "class", js: "class", typ: u(undefined, a(r("ClassElement")), r("ClassElement")) },
-        { json: "sourcefile", js: "sourcefile", typ: u(undefined, a(r("SourcefileElement")), r("SourcefileElement")) },
-        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
-    ], false),
-    "ClassElement": o([
-        { json: "@_name", js: "@_name", typ: "" },
-        { json: "@_sourcefilename", js: "@_sourcefilename", typ: u(undefined, "") },
-        { json: "method", js: "method", typ: u(undefined, a(r("MethodElement")), r("MethodElement")) },
-        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
-    ], false),
-    "MethodElement": o([
-        { json: "@_name", js: "@_name", typ: "" },
-        { json: "@_desc", js: "@_desc", typ: "" },
-        { json: "@_line", js: "@_line", typ: u(undefined, "") },
-        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
-    ], false),
-    "SourcefileElement": o([
-        { json: "@_name", js: "@_name", typ: "" },
-        { json: "line", js: "line", typ: u(undefined, a(r("LineElement")), r("LineElement")) },
-        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
-    ], false),
-    "LineElement": o([
-        { json: "@_nr", js: "@_nr", typ: "" },
-        { json: "@_mi", js: "@_mi", typ: u(undefined, "") },
-        { json: "@_ci", js: "@_ci", typ: u(undefined, "") },
-        { json: "@_mb", js: "@_mb", typ: u(undefined, "") },
-        { json: "@_cb", js: "@_cb", typ: u(undefined, "") },
+        { json: "name", js: "name", typ: "" },
+        { json: "sessioninfo", js: "sessionInfo", typ: u(undefined, fa(r("SessionInfo"))) },
+        { json: "group", js: "group", typ: u(undefined, fa(r("Group"))) },
+        { json: "package", js: "package", typ: u(undefined, fa(r("Package"))) },
+        { json: "counter", js: "counter", typ: u(undefined, fa(r("Counter"))) },
     ], false),
     "Counter": o([
-        { json: "@_type", js: "@_type", typ: r("Type") },
-        { json: "@_missed", js: "@_missed", typ: "" },
-        { json: "@_covered", js: "@_covered", typ: "" },
+        { json: "covered", js: "covered", typ: 0 },
+        { json: "missed", js: "missed", typ: 0 },
+        { json: "type", js: "type", typ: r("Type") },
+    ], false),
+    "Package": o([
+        { json: "name", js: "name", typ: "" },
+        { json: "class", js: "class", typ: u(undefined, fa(r("Class"))) },
+        { json: "sourcefile", js: "sourceFile", typ: u(undefined, fa(r("SourceFile"))) },
+        { json: "counter", js: "counter", typ: u(undefined, fa(r("Counter"))) },
+    ], false),
+    "Group": o([
+        { json: "name", js: "name", typ: "" },
+        { json: "group", js: "group", typ: u(undefined, fa(r("Group"))) },
+        { json: "package", js: "package", typ: u(undefined, fa(r("Package"))) },
+        { json: "counter", js: "counter", typ: u(undefined, fa(r("Counter"))) },
+    ], false),
+    "Class": o([
+        { json: "name", js: "name", typ: "" },
+        { json: "sourcefilename", js: "sourceFileName", typ: u(undefined, "") },
+        { json: "method", js: "method", typ: u(undefined, fa(r("Method"))) },
+        { json: "counter", js: "counter", typ: u(undefined, fa(r("Counter"))) },
+    ], false),
+    "Method": o([
+        { json: "name", js: "name", typ: "" },
+        { json: "desc", js: "desc", typ: "" },
+        { json: "line", js: "line", typ: u(undefined, 0) },
+        { json: "counter", js: "counter", typ: u(undefined, fa(r("Counter"))) },
+    ], false),
+    "SourceFile": o([
+        { json: "name", js: "name", typ: "" },
+        { json: "line", js: "line", typ: u(undefined, fa(r("Line"))) },
+        { json: "counter", js: "counter", typ: u(undefined, fa(r("Counter"))) },
+    ], false),
+    "Line": o([
+        { json: "nr", js: "nr", typ: 0 },
+        { json: "mi", js: "mi", typ: u(undefined, 0) },
+        { json: "ci", js: "ci", typ: u(undefined, 0) },
+        { json: "mb", js: "mb", typ: u(undefined, 0) },
+        { json: "cb", js: "cb", typ: u(undefined, 0) },
+    ], false),
+    "SessionInfo": o([
+        { json: "id", js: "id", typ: "" },
+        { json: "dump", js: "dump", typ: 0 },
+        { json: "start", js: "start", typ: 0 },
+    ], false),
+    "XML": o([
+        { json: "version", js: "version", typ: 0 },
+        { json: "encoding", js: "encoding", typ: "" },
+        { json: "standalone", js: "standalone", typ: "" },
     ], false),
     "Type": [
         "BRANCH",

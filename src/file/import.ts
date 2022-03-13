@@ -1,13 +1,18 @@
-import { JacocoXML } from "@/model/xml/jacoco/jacoco_xml";
-import { JacocoXmlConverter } from "@/model/xml/jacoco/jacoco_xml_converter";
-import { XMLParser } from 'fast-xml-parser';
+import { JaCoCo } from "@/model/jacoco/jacoco";
+import { JaCoCoMapper } from "@/model/jacoco/mapper";
+import { X2jOptionsOptional, XMLParser } from 'fast-xml-parser';
 
-export function importXml(file: Buffer): JacocoXML {
-    let parser = new XMLParser({
-        ignoreAttributes: false,
-        attributeNamePrefix: "@_",
-        allowBooleanAttributes: true
-    });
+const xmlOption: X2jOptionsOptional = {
+    ignoreAttributes: false,
+    attributeNamePrefix: "",
+    allowBooleanAttributes: true,
+    parseAttributeValue: true,
+    parseTagValue: true
+}
+
+const parser = new XMLParser(xmlOption);
+
+export function importXml(file: Buffer): JaCoCo {
     let json = JSON.stringify(parser.parse(file));
-    return JacocoXmlConverter.toJacocoXML(json);
+    return JaCoCoMapper.toJaCoCo(json);
 }
