@@ -9,6 +9,7 @@
 //
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
+// https://www.jacoco.org/jacoco/trunk/coverage/report.dtd
 
 import { JacocoXML } from "@/model/xml/jacoco/jacoco_xml";
 
