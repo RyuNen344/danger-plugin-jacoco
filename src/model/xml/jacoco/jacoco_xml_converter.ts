@@ -10,7 +10,7 @@
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 
-import { JacocoXML } from "@model/xml/jacoco/jacoco_xml";
+import { JacocoXML } from "@/model/xml/jacoco/jacoco_xml";
 
 export class JacocoXmlConverter {
     public static toJacocoXML(json: string): JacocoXML {
@@ -165,50 +165,57 @@ const typeMap: any = {
         { json: "@_standalone", js: "@_standalone", typ: "" },
     ], false),
     "Report": o([
-        { json: "sessioninfo", js: "sessioninfo", typ: a(r("Sessioninfo")) },
-        { json: "package", js: "package", typ: a(r("Package")) },
-        { json: "counter", js: "counter", typ: a(r("Counter")) },
         { json: "@_name", js: "@_name", typ: "" },
+        { json: "sessioninfo", js: "sessioninfo", typ: u(undefined, a(r("Sessioninfo")), r("Sessioninfo")) },
+        { json: "group", js: "group", typ: u(undefined, a(r("Group")), r("Group")) },
+        { json: "package", js: "package", typ: u(undefined, a(r("Package")), r("Package")) },
+        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
     ], false),
-    "Counter": o([
-        { json: "@_covered", js: "@_covered", typ: "" },
-        { json: "@_missed", js: "@_missed", typ: "" },
-        { json: "@_type", js: "@_type", typ: r("Type") },
+    "Sessioninfo": o([
+        { json: "@_id", js: "@_id", typ: "" },
+        { json: "@_start", js: "@_start", typ: "" },
+        { json: "@_dump", js: "@_dump", typ: "" },
+    ], false),
+    "Group": o([
+        { json: "@_name", js: "@_name", typ: "" },
+        { json: "group", js: "group", typ: u(undefined, a(r("Group")), r("Group")) },
+        { json: "package", js: "package", typ: u(undefined, a(r("Package")), r("Package")) },
+        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
     ], false),
     "Package": o([
-        { json: "class", js: "class", typ: u(a(r("ClassElement")), r("ClassElement")) },
-        { json: "sourcefile", js: "sourcefile", typ: u(a(r("SourcefileElement")), r("SourcefileElement")) },
-        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter"))) },
         { json: "@_name", js: "@_name", typ: "" },
+        { json: "class", js: "class", typ: u(undefined, a(r("ClassElement")), r("ClassElement")) },
+        { json: "sourcefile", js: "sourcefile", typ: u(undefined, a(r("SourcefileElement")), r("SourcefileElement")) },
+        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
     ], false),
     "ClassElement": o([
-        { json: "method", js: "method", typ: u(undefined, u(a(r("MethodElement")), r("MethodElement"))) },
-        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter"))) },
         { json: "@_name", js: "@_name", typ: "" },
-        { json: "@_sourcefilename", js: "@_sourcefilename", typ: "" },
+        { json: "@_sourcefilename", js: "@_sourcefilename", typ: u(undefined, "") },
+        { json: "method", js: "method", typ: u(undefined, a(r("MethodElement")), r("MethodElement")) },
+        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
     ], false),
     "MethodElement": o([
-        { json: "counter", js: "counter", typ: a(r("Counter")) },
         { json: "@_name", js: "@_name", typ: "" },
         { json: "@_desc", js: "@_desc", typ: "" },
-        { json: "@_line", js: "@_line", typ: "" },
+        { json: "@_line", js: "@_line", typ: u(undefined, "") },
+        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
     ], false),
     "SourcefileElement": o([
         { json: "@_name", js: "@_name", typ: "" },
-        { json: "line", js: "line", typ: u(undefined, u(a(r("LineElement")), r("LineElement"))) },
-        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter"))) },
+        { json: "line", js: "line", typ: u(undefined, a(r("LineElement")), r("LineElement")) },
+        { json: "counter", js: "counter", typ: u(undefined, a(r("Counter")), r("Counter")) },
     ], false),
     "LineElement": o([
-        { json: "@_cb", js: "@_cb", typ: "" },
-        { json: "@_ci", js: "@_ci", typ: "" },
-        { json: "@_mb", js: "@_mb", typ: "" },
-        { json: "@_mi", js: "@_mi", typ: "" },
         { json: "@_nr", js: "@_nr", typ: "" },
+        { json: "@_mi", js: "@_mi", typ: u(undefined, "") },
+        { json: "@_ci", js: "@_ci", typ: u(undefined, "") },
+        { json: "@_mb", js: "@_mb", typ: u(undefined, "") },
+        { json: "@_cb", js: "@_cb", typ: u(undefined, "") },
     ], false),
-    "Sessioninfo": o([
-        { json: "@_dump", js: "@_dump", typ: "" },
-        { json: "@_id", js: "@_id", typ: "" },
-        { json: "@_start", js: "@_start", typ: "" },
+    "Counter": o([
+        { json: "@_type", js: "@_type", typ: r("Type") },
+        { json: "@_missed", js: "@_missed", typ: "" },
+        { json: "@_covered", js: "@_covered", typ: "" },
     ], false),
     "Type": [
         "BRANCH",
