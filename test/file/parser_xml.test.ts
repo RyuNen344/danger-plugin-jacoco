@@ -1,4 +1,4 @@
-import { importXml } from '@/file/import';
+import { importXml } from '@/file/parser_xml';
 import * as fs from 'fs';
 import { Logger } from 'tslog';
 
