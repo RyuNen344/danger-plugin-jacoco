@@ -1,7 +1,7 @@
 import { danger, markdown, message, warn } from "danger";
 import * as fs from "fs";
 
-const modifiedMD = danger.git.modified_files.join("- ");
+const modifiedMD = [...danger.git.modified_files, ...danger.git.created_files].join("\n - ");
 message("Changed Files in this PR: \n - " + modifiedMD);
 
 const isWIP = (danger.github.pr.body + danger.github.pr.title).includes("WIP");
