@@ -9,7 +9,7 @@ node_modules/
 dist/
 
 # test
-coverage/
+coverage/*
 
 # mac
 .DS_Store
