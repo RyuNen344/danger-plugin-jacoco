@@ -12,7 +12,4 @@ const xmlOption: X2jOptionsOptional = {
 
 const parser = new XMLParser(xmlOption);
 
-export function importXml(file: Buffer): JaCoCo {
-    let json = JSON.stringify(parser.parse(file));
-    return JaCoCoMapper.toJaCoCo(json);
-}
+export const importXml = (file: Buffer): JaCoCo => JaCoCoMapper.toJaCoCo(JSON.stringify(parser.parse(file)))
