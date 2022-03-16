@@ -4,8 +4,7 @@ import { SourceFile } from "@/model/jacoco/source_file";
 import { Type } from "@/model/jacoco/type";
 
 export class SourceFileCollector extends Collector {
-
-    data: SourceFile
+    data: SourceFile;
 
     constructor(data: SourceFile) {
         super();
@@ -20,7 +19,7 @@ export class SourceFileCollector extends Collector {
             complexityRate: rate(Type.Complexity, this.data.counter),
             coveredLinesRate: rate(Type.Line, this.data.counter),
             coveredMethodsRate: rate(Type.Method, this.data.counter),
-            coveredClassesRate: rate(Type.Class, this.data.counter)
+            coveredClassesRate: rate(Type.Class, this.data.counter),
         };
-    }
+    };
 }

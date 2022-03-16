@@ -7,14 +7,21 @@ export abstract class Collector {
 }
 
 export const rate = (type: Type, counters?: Counter[]): number | undefined => {
-    const missed = counters?.filter((e) => e.type == type).map((e) => e.missed).reduce((a, x) => a + x, 0);
-    const covered = counters?.filter((e) => e.type == type).map((e) => e.covered).reduce((a, x) => a + x, 0);
+    const missed = counters
+        ?.filter((e) => e.type == type)
+        .map((e) => e.missed)
+        .reduce((a, x) => a + x, 0);
+    const covered = counters
+        ?.filter((e) => e.type == type)
+        .map((e) => e.covered)
+        .reduce((a, x) => a + x, 0);
+
     if (missed == null || covered == null) return undefined;
     const total = missed + covered;
 
     if (total <= 0) {
-        return 0;
+        return undefined;
     } else {
-        return (covered * 100 / total);
+        return (covered * 100) / total;
     }
-}
+};

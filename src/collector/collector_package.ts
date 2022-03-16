@@ -6,8 +6,7 @@ import { Package } from "@/model/jacoco/package";
 import { Type } from "@/model/jacoco/type";
 
 export class PackageCollector extends Collector {
-
-    data: Package
+    data: Package;
 
     constructor(data: Package) {
         super();
@@ -24,7 +23,7 @@ export class PackageCollector extends Collector {
             coveredMethodsRate: rate(Type.Method, this.data.counter),
             coveredClassesRate: rate(Type.Class, this.data.counter),
             classes: this.data.class?.map((e) => new ClassCollector(e).collect()) ?? [],
-            sourceFiles: this.data.sourceFile?.map((e) => new SourceFileCollector(e).collect()) ?? []
+            sourceFiles: this.data.sourceFile?.map((e) => new SourceFileCollector(e).collect()) ?? [],
         };
-    }
+    };
 }

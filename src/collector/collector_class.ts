@@ -5,8 +5,7 @@ import { Class } from "@/model/jacoco/class";
 import { Type } from "@/model/jacoco/type";
 
 export class ClassCollector extends Collector {
-
-    data: Class
+    data: Class;
 
     constructor(data: Class) {
         super();
@@ -22,7 +21,7 @@ export class ClassCollector extends Collector {
             coveredLinesRate: rate(Type.Line, this.data.counter),
             coveredMethodsRate: rate(Type.Method, this.data.counter),
             coveredClassesRate: rate(Type.Class, this.data.counter),
-            methods: this.data.method?.map((e) => new MethodCollector(e).collect()) ?? []
+            methods: this.data.method?.map((e) => new MethodCollector(e).collect()) ?? [],
         };
-    }
+    };
 }

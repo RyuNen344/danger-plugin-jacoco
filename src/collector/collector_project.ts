@@ -5,8 +5,7 @@ import { Report } from "@/model/jacoco/report";
 import { Type } from "@/model/jacoco/type";
 
 export class ProjectCollector extends Collector {
-
-    data: Report
+    data: Report;
 
     constructor(data: Report) {
         super();
@@ -22,7 +21,7 @@ export class ProjectCollector extends Collector {
             coveredLinesRate: rate(Type.Line, this.data.counter),
             coveredMethodsRate: rate(Type.Method, this.data.counter),
             coveredClassesRate: rate(Type.Class, this.data.counter),
-            packages: this.data.package?.map((e) => new PackageCollector(e).collect()) ?? []
+            packages: this.data.package?.map((e) => new PackageCollector(e).collect()) ?? [],
         };
-    }
+    };
 }
