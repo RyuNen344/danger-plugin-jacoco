@@ -1,4 +1,4 @@
-import { ProjectCoverage } from "@/model/coverage/project_coverage";
+import { ProjectCoverage } from "@/model/coverage/project-coverage";
 import { Report } from "@/model/jacoco/report";
 import { Type } from "@/model/jacoco/type";
 import { CoverageProcessor, rate } from "@/processor/coverage/coverage-processor";

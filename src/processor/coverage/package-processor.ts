@@ -1,4 +1,4 @@
-import { PackageCoverage } from "@/model/coverage/package_coverage";
+import { PackageCoverage } from "@/model/coverage/package-coverage";
 import { Package } from "@/model/jacoco/package";
 import { Type } from "@/model/jacoco/type";
 import { ClassCoverageProcessor } from "@/processor/coverage/class-processor";

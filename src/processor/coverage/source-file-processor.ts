@@ -1,5 +1,5 @@
-import { SourceFileCoverage } from "@/model/coverage/source_file_coverage";
-import { SourceFile } from "@/model/jacoco/source_file";
+import { SourceFileCoverage } from "@/model/coverage/source-file-coverage";
+import { SourceFile } from "@/model/jacoco/source-file";
 import { Type } from "@/model/jacoco/type";
 import { CoverageProcessor, rate } from "@/processor/coverage/coverage-processor";
 

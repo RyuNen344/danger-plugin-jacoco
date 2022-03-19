@@ -1,6 +1,6 @@
 import { Class } from "@/model/jacoco/class";
 import { Counter } from "@/model/jacoco/counter";
-import { SourceFile } from "@/model/jacoco/source_file";
+import { SourceFile } from "@/model/jacoco/source-file";
 
 export interface Package {
     name: string;

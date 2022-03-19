@@ -1,4 +1,4 @@
-import { MethodCoverage } from "@/model/coverage/method_coverage";
+import { MethodCoverage } from "@/model/coverage/method-coverage";
 import { Method } from "@/model/jacoco/method";
 import { Type } from "@/model/jacoco/type";
 import { CoverageProcessor, rate } from "@/processor/coverage/coverage-processor";
