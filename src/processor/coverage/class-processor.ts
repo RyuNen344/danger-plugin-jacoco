@@ -1,17 +1,18 @@
-import { Collector, rate } from "@/collector/collector";
-import { SourceFileCoverage } from "@/model/coverage/source_file_coverage";
-import { SourceFile } from "@/model/jacoco/source_file";
+import { ClassCoverage } from "@/model/coverage/class_coverage";
+import { Class } from "@/model/jacoco/class";
 import { Type } from "@/model/jacoco/type";
+import { CoverageProcessor, rate } from "@/processor/coverage/coverage-processor";
+import { MethodCoverageProcessor } from "@/processor/coverage/method-processor";
 
-export class SourceFileCollector extends Collector {
-    data: SourceFile;
+export class ClassCoverageProcessor extends CoverageProcessor {
+    data: Class;
 
-    constructor(data: SourceFile) {
+    constructor(data: Class) {
         super();
         this.data = data;
     }
 
-    collect = (): SourceFileCoverage => {
+    invoke = (): ClassCoverage => {
         return {
             name: this.data.name,
             instructionsCov: rate(Type.Instruction, this.data.counter),
@@ -20,6 +21,7 @@ export class SourceFileCollector extends Collector {
             coveredLinesRate: rate(Type.Line, this.data.counter),
             coveredMethodsRate: rate(Type.Method, this.data.counter),
             coveredClassesRate: rate(Type.Class, this.data.counter),
+            methods: this.data.method?.map((e) => new MethodCoverageProcessor(e).invoke()) ?? [],
         };
     };
 }

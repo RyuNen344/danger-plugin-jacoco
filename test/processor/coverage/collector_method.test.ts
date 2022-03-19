@@ -1,8 +1,8 @@
-import { MethodCollector } from "@/collector/collector_method";
-import { ProjectCollector } from "@/collector/collector_project";
 import { importXml } from "@/file/parser_xml";
 import { Method } from "@/model/jacoco/method";
 import { Type } from "@/model/jacoco/type";
+import { MethodCoverageProcessor } from "@/processor/coverage/method-processor";
+import { ProjectCoverageProcessor } from "@/processor/coverage/project-processor";
 import * as fs from "fs";
 import { Logger } from "tslog";
 
@@ -13,7 +13,7 @@ describe("import xml file and deserialize it", () => {
         const xml = fs.readFileSync("test/__resource__/sample_jacoco_dagashi.xml");
         const jacoco = importXml(xml);
 
-        const coverage = new ProjectCollector(jacoco.report).collect();
+        const coverage = new ProjectCoverageProcessor(jacoco.report).invoke();
         log.debug(coverage.name);
         log.debug(`instructionsCov ${coverage.instructionsCov != null ? coverage.instructionsCov : "N/A"}`);
         log.debug(`branchesCov ${coverage.branchesCov != null ? coverage.branchesCov : "N/A"}`);
@@ -57,8 +57,8 @@ describe("import xml file and deserialize it", () => {
             ],
         };
 
-        const collcetor = new MethodCollector(method);
-        const coverage = collcetor.collect();
+        const collcetor = new MethodCoverageProcessor(method);
+        const coverage = collcetor.invoke();
         log.debug(coverage.branchesCov);
     });
 });

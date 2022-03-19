@@ -1,4 +1,4 @@
-import { ProjectCollector } from "@/collector/collector_project";
+import { ProjectCollector } from "@/processor/coverage/project-processor";
 import { importXml } from "@/file/parser_xml";
 import { ProjectCoverage } from "@/model/coverage/project_coverage";
 import { JaCoCo } from "@/model/jacoco/jacoco";

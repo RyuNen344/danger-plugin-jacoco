@@ -2,8 +2,8 @@ import { Coverage } from "@/model/coverage/coverage";
 import { Counter } from "@/model/jacoco/counter";
 import { Type } from "@/model/jacoco/type";
 
-export abstract class Collector {
-    abstract collect(): Coverage;
+export abstract class CoverageProcessor {
+    abstract invoke(): Coverage;
 }
 
 export const rate = (type: Type, counters?: Counter[]): number | undefined => {

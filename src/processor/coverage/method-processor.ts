@@ -1,9 +1,9 @@
-import { Collector, rate } from "@/collector/collector";
 import { MethodCoverage } from "@/model/coverage/method_coverage";
 import { Method } from "@/model/jacoco/method";
 import { Type } from "@/model/jacoco/type";
+import { CoverageProcessor, rate } from "@/processor/coverage/coverage-processor";
 
-export class MethodCollector extends Collector {
+export class MethodCoverageProcessor extends CoverageProcessor {
     data: Method;
 
     constructor(data: Method) {
@@ -11,7 +11,7 @@ export class MethodCollector extends Collector {
         this.data = data;
     }
 
-    collect = (): MethodCoverage => {
+    invoke = (): MethodCoverage => {
         return {
             name: this.data.name,
             instructionsCov: rate(Type.Instruction, this.data.counter),
