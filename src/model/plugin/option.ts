@@ -1,6 +1,8 @@
+import { ExportUnit, EXPORT_UNIT } from "@/model/plugin/export-unit";
+
 export interface Option {
     projectCoverageRate: number;
-    exportUnit: EXPORT_UNIT;
+    exportUnit: ExportUnit;
     excludePackages: string[];
 }
 
