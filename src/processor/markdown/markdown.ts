@@ -1,8 +1,7 @@
 import { Coverage } from "@/model/coverage/coverage";
 import { CoverageStatus, COVERAGE_STATUS } from "@/model/coverage/coverage-status";
 import { ProjectCoverage } from "@/model/coverage/project-coverage";
-
-export type MarkdownStr = string;
+import { MarkdownString } from "@/model/markdown/markdown";
 
 export class MarkdownProcessor {
     private static readonly MARKDOWN_TABLE_HEADER =
@@ -10,7 +9,7 @@ export class MarkdownProcessor {
 
     private static readonly MARKDOWN_TABLE_DIVIDER = "| --- | --- | --- | --- | --- | --- | --- | --- |\n";
 
-    public static projectReport(minRate: number, coverage: ProjectCoverage): MarkdownStr {
+    public static projectReport(minRate: number, coverage: ProjectCoverage): MarkdownString {
         return [
             `## JaCoCo Report\n`,
             `### \`${coverage.name}\`'s Coverages are `,
@@ -21,14 +20,14 @@ export class MarkdownProcessor {
         ].join("");
     }
 
-    public static coverageReport(minRate: number, coverages: Coverage[]): MarkdownStr {
+    public static coverageReport(minRate: number, coverages: Coverage[]): MarkdownString {
         return [this.MARKDOWN_TABLE_HEADER, this.MARKDOWN_TABLE_DIVIDER]
             .concat(coverages.map((e) => coverageRow(minRate, e)))
             .join("");
     }
 }
 
-export const coverageRow = (minRate: number, coverage: Coverage): MarkdownStr => {
+export const coverageRow = (minRate: number, coverage: Coverage): MarkdownString => {
     const row = [
         `| \`${coverage.name}\` `,
         `| **${coverage.instructionsCov != null ? coverage.instructionsCov.toFixed(2) : "N/A"}** `,
