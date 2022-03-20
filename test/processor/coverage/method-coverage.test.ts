@@ -2,7 +2,7 @@ import { Method } from "@/model/jacoco/method";
 import { Type } from "@/model/jacoco/type";
 import { MethodCoverageProcessor } from "@/processor/coverage/method-processor";
 import { ProjectCoverageProcessor } from "@/processor/coverage/project-processor";
-import { XmlParserProcessor } from "@/processor/file/xml-parser";
+import { XmlParserProcessor } from "@/processor/file/xml-processor";
 import * as fs from "fs";
 import { Logger } from "tslog";
 

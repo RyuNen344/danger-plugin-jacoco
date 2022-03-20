@@ -2,7 +2,7 @@ import { JaCoCo } from "@/model/jacoco/jacoco";
 import { JaCoCoMapper } from "@/model/jacoco/mapper";
 import { X2jOptionsOptional, XMLParser } from "fast-xml-parser";
 
-export class XmlParserProcessor {
+export class XmlProcessor {
     private static readonly xmlOption: X2jOptionsOptional = {
         ignoreAttributes: false,
         attributeNamePrefix: "",

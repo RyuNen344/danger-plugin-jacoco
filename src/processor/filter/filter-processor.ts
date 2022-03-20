@@ -4,7 +4,7 @@ import { PackageCoverage } from "@/model/coverage/package-coverage";
 import { ProjectCoverage } from "@/model/coverage/project-coverage";
 import { EXPORT_UNIT } from "@/model/plugin/export-unit";
 import { Option } from "@/model/plugin/option";
-import { DangerDSLType } from "../../../node_modules/danger/distribution/dsl/DangerDSL";
+import { DangerDSLType } from "danger/distribution/dsl/DangerDSL";
 
 // eslint-disable-next-line no-var
 export declare var danger: DangerDSLType;

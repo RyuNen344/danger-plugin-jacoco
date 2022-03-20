@@ -1,4 +1,4 @@
-import { XmlParserProcessor } from "@/processor/file/xml-parser";
+import { XmlProcessor } from "@/processor/file/xml-processor";
 import * as fs from "fs";
 import { Logger } from "tslog";
 
@@ -7,7 +7,7 @@ const log = new Logger();
 describe("import xml file and deserialize it", () => {
     test("should success a.xml", () => {
         const xml = fs.readFileSync("test/__resource__/sample_jacoco_a.xml");
-        const actual = XmlParserProcessor.importXml(xml);
+        const actual = XmlProcessor.importXml(xml);
 
         log.debug(actual.report.package);
         log.debug(actual.report.name);
@@ -25,7 +25,7 @@ describe("import xml file and deserialize it", () => {
         // let json = JSON.stringify(parser.parse(xml, true));
         // fs.writeFileSync('dagashi3.json', json);
 
-        const actual = XmlParserProcessor.importXml(xml);
+        const actual = XmlProcessor.importXml(xml);
         log.debug(actual.report.package);
         log.debug(actual.report.name);
         if (actual.report.package?.[0] != null) {
@@ -35,7 +35,7 @@ describe("import xml file and deserialize it", () => {
 
     test("should success dagashi.xml", () => {
         const xml = fs.readFileSync("test/__resource__/sample_jacoco_dagashi.xml");
-        const actual = XmlParserProcessor.importXml(xml);
+        const actual = XmlProcessor.importXml(xml);
         log.debug(actual.report.package);
         log.debug(actual.report.name);
     });

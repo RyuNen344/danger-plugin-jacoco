@@ -40,7 +40,15 @@ describe("creation markdown table row string from coverage", () => {
             ],
         };
 
-        const coverage = new MethodCoverageProcessor(method).invoke();
+        const coverage = new MethodCoverageProcessor(method, "name").invoke();
         log.debug(coverage.branchesCov);
+    });
+
+    test("file path split test", () => {
+        const path = "src/processor/coverage/class-processor.kt";
+
+        const fileName = path.split("/")[path.split("/").length - 1];
+
+        console.log(fileName);
     });
 });
