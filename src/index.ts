@@ -1,21 +1,21 @@
 import { ProjectCoverage } from "@/model/coverage/project-coverage";
 import { JaCoCo } from "@/model/jacoco/jacoco";
-import { EXPORT_UNIT } from "@/model/plugin/export-unit";
 import { defaultOption, Option } from "@/model/plugin/option";
 import { ProjectCoverageProcessor } from "@/processor/coverage/project-processor";
 import { XmlParserProcessor } from "@/processor/file/xml-parser";
+import { FilterProcessor } from "@/processor/filter/filter";
 import { MarkdownProcessor } from "@/processor/markdown/markdown";
+import { DangerReporter } from "@/reporter/danger-reporter";
+import { Reporter } from "@/reporter/reporter";
 import * as fs from "fs";
-import { Logger } from "tslog";
 
-const log: Logger = new Logger();
+const reporter: Reporter = new DangerReporter();
 
 export function jacoco(filePath: string, option: Option = defaultOption) {
-    log.debug("import xml file " + filePath);
-
     if (!fs.existsSync(filePath)) {
-        log.error(`could not found jacoco xml file ${filePath}`);
-        fail(`could not found jacoco xml file ${filePath}`);
+        reporter.error(`could not found jacoco xml file ${filePath}`);
+
+        return;
     }
 
     let coverage: ProjectCoverage;
@@ -24,28 +24,16 @@ export function jacoco(filePath: string, option: Option = defaultOption) {
         const jacoco: JaCoCo = XmlParserProcessor.importXml(xml);
         coverage = new ProjectCoverageProcessor(jacoco.report).invoke();
     } catch (error) {
-        log.error(error);
-        fail("could not parse jacoco xml file");
-    }
+        reporter.error(error);
 
-    log.debug(coverage.name);
+        return;
+    }
 
     const projectReport = MarkdownProcessor.projectReport(option.projectCoverageRate, coverage);
-    let coverageReport: string;
-    switch (option.exportUnit) {
-        case EXPORT_UNIT.PACKAGE:
-            coverageReport = MarkdownProcessor.coverageReport(option.projectCoverageRate, coverage.packages);
-            break;
-        case EXPORT_UNIT.FILE:
-            coverageReport = MarkdownProcessor.coverageReport(option.projectCoverageRate, coverage.packages);
-            break;
-        case EXPORT_UNIT.CLASS:
-            coverageReport = MarkdownProcessor.coverageReport(option.projectCoverageRate, coverage.packages);
-            break;
-        case EXPORT_UNIT.METHOD:
-            coverageReport = MarkdownProcessor.coverageReport(option.projectCoverageRate, coverage.packages);
-            break;
-    }
 
-    log.debug(projectReport + coverageReport);
+    const coverageReport = MarkdownProcessor.coverageReport(
+        option.projectCoverageRate,
+        FilterProcessor.extractCoverage(option, coverage)
+    );
+    reporter.markdown(projectReport + coverageReport);
 }
