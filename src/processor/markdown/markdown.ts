@@ -9,6 +9,8 @@ export class MarkdownProcessor {
 
     private static readonly MARKDOWN_TABLE_DIVIDER = "| --- | --- | --- | --- | --- | --- | --- | --- |\n";
 
+    private static readonly MARKDOWN_TABLE_NO_ELEMENT = "| none | none | none | none | none | none | none | none |\n";
+
     public static projectReport(minRate: number, coverage: ProjectCoverage): MarkdownString {
         return [
             `## JaCoCo Report\n`,
@@ -21,9 +23,13 @@ export class MarkdownProcessor {
     }
 
     public static coverageReport(minRate: number, coverages: Coverage[]): MarkdownString {
-        return [this.MARKDOWN_TABLE_HEADER, this.MARKDOWN_TABLE_DIVIDER]
-            .concat(coverages.map((e) => coverageRow(minRate, e)))
-            .join("");
+        if (coverages.length == 0) {
+            return [this.MARKDOWN_TABLE_HEADER, this.MARKDOWN_TABLE_DIVIDER, this.MARKDOWN_TABLE_NO_ELEMENT].join("");
+        } else {
+            return [this.MARKDOWN_TABLE_HEADER, this.MARKDOWN_TABLE_DIVIDER]
+                .concat(coverages.map((e) => coverageRow(minRate, e)))
+                .join("");
+        }
     }
 }
 
