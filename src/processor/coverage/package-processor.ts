@@ -22,7 +22,7 @@ export class PackageCoverageProcessor extends CoverageProcessor {
             coveredLinesRate: rate(Type.Line, this.data.counter),
             coveredMethodsRate: rate(Type.Method, this.data.counter),
             coveredClassesRate: rate(Type.Class, this.data.counter),
-            classes: this.data.class?.map((e) => new ClassCoverageProcessor(e).invoke()) ?? [],
+            classes: this.data.class?.map((e) => new ClassCoverageProcessor(e, this.data.name).invoke()) ?? [],
             sourceFiles: this.data.sourceFile?.map((e) => new SourceFileCoverageProcessor(e).invoke()) ?? [],
         };
     };
