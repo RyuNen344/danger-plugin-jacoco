@@ -1,8 +1,8 @@
-import { importXml } from "@/processor/file/xml-parser";
 import { Method } from "@/model/jacoco/method";
 import { Type } from "@/model/jacoco/type";
 import { MethodCoverageProcessor } from "@/processor/coverage/method-processor";
 import { ProjectCoverageProcessor } from "@/processor/coverage/project-processor";
+import { XmlParserProcessor } from "@/processor/file/xml-parser";
 import * as fs from "fs";
 import { Logger } from "tslog";
 
@@ -11,7 +11,7 @@ const log = new Logger();
 describe("import xml file and deserialize it", () => {
     test("should success modeling from xml", () => {
         const xml = fs.readFileSync("test/__resource__/sample_jacoco_dagashi.xml");
-        const jacoco = importXml(xml);
+        const jacoco = XmlParserProcessor.importXml(xml);
 
         const coverage = new ProjectCoverageProcessor(jacoco.report).invoke();
         log.debug(coverage.name);
