@@ -1,9 +1,9 @@
-import { importXml } from "@/file/xml-parser";
 import { ProjectCoverage } from "@/model/coverage/project-coverage";
 import { JaCoCo } from "@/model/jacoco/jacoco";
 import { EXPORT_UNIT } from "@/model/plugin/export-unit";
 import { defaultOption, Option } from "@/model/plugin/option";
 import { ProjectCoverageProcessor } from "@/processor/coverage/project-processor";
+import { XmlParserProcessor } from "@/processor/file/xml-parser";
 import { MarkdownProcessor } from "@/processor/markdown/markdown";
 import * as fs from "fs";
 import { Logger } from "tslog";
@@ -21,7 +21,7 @@ export function jacoco(filePath: string, option: Option = defaultOption) {
     let coverage: ProjectCoverage;
     try {
         const xml: Buffer = fs.readFileSync(filePath);
-        const jacoco: JaCoCo = importXml(xml);
+        const jacoco: JaCoCo = XmlParserProcessor.importXml(xml);
         coverage = new ProjectCoverageProcessor(jacoco.report).invoke();
     } catch (error) {
         log.error(error);

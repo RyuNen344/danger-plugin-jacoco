@@ -1,4 +1,4 @@
-import { importXml } from "@/file/xml-parser";
+import { importXml } from "@/processor/file/xml-parser";
 import { Method } from "@/model/jacoco/method";
 import { Type } from "@/model/jacoco/type";
 import { MethodCoverageProcessor } from "@/processor/coverage/method-processor";
