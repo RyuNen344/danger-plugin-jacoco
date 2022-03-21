@@ -6,12 +6,10 @@ import { MethodCoverageProcessor } from "@/processor/coverage/method-processor";
 
 export class ClassCoverageProcessor extends CoverageProcessor {
     data: Class;
-    packageName: string;
 
-    constructor(data: Class, packageName: string) {
+    constructor(data: Class) {
         super();
         this.data = data;
-        this.packageName = packageName;
     }
 
     invoke = (): ClassCoverage => {
