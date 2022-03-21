@@ -15,10 +15,8 @@ export class ClassCoverageProcessor extends CoverageProcessor {
     }
 
     invoke = (): ClassCoverage => {
-        const mergedName = this.packageName + "/" + this.data.name;
-
         return {
-            name: mergedName,
+            name: this.data.name,
             sourceFileName: this.data.sourceFileName,
             instructionsCov: rate(Type.Instruction, this.data.counter),
             branchesCov: rate(Type.Branch, this.data.counter),
@@ -28,7 +26,7 @@ export class ClassCoverageProcessor extends CoverageProcessor {
             coveredClassesRate: rate(Type.Class, this.data.counter),
             methods:
                 this.data.method?.map((e) =>
-                    new MethodCoverageProcessor(e, mergedName).invoke()
+                    new MethodCoverageProcessor(e, this.data.name).invoke()
                 ) ?? [],
         };
     };
