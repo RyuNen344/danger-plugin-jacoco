@@ -7,7 +7,7 @@ import { Option } from "@/model/plugin/option";
 import { DangerDSLType } from "danger/distribution/dsl/DangerDSL";
 
 // eslint-disable-next-line no-var
-export declare var danger: DangerDSLType;
+declare var danger: DangerDSLType;
 
 export class FilterProcessor {
     public static extractCoverage(option: Option, projectCoverage: ProjectCoverage): Coverage[] {
