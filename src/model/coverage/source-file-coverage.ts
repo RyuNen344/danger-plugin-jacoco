@@ -1,3 +1,3 @@
 import { Coverage } from "@/model/coverage/coverage";
 
-export type MethodCoverage = Coverage
+export type SourceFileCoverage = Coverage;

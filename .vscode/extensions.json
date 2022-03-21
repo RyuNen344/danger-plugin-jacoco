@@ -2,6 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "gamunu.vscode-yarn",
-    "Orta.vscode-jest"
+    "Orta.vscode-jest",
+    "esbenp.prettier-vscode"
   ]
 }

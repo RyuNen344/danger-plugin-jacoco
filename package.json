@@ -1,5 +1,5 @@
 {
-  "name": "danger-plugin-jacoco",
+  "name": "@ryunen344/danger-plugin-jacoco",
   "version": "0.0.1",
   "description": "Dnager JS plugin for jacoco",
   "author": "RyuNen344",
