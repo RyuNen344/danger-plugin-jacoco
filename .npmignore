@@ -1,5 +1,6 @@
 src/
 test/
+.yarn/
 .editorconfig
 .eslintrc.json
 .gitignore
