@@ -24,13 +24,16 @@ Configuration:
 export interface Option {
     /**
      * If c0 or c1 is below value, will display mark.
-     * default 0
+     * 
+     * Default: 0
      */
     projectCoverageRate: number;
 
     /**
-     * option has PACKAGE, FILE, CLASS, METHOD
-     * default FILE
+     * Unit of the table to output
+     * Option has PACKAGE, FILE, CLASS, METHOD
+     * 
+     * Default: FILE
      */ 
     exportUnit: ExportUnit;
 
