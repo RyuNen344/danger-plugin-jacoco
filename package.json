@@ -27,7 +27,8 @@
     "predocs": "rm -rf docs/",
     "docs": "typedoc",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "format": "prettier --write 'src/**/*.{ts,tsx}'"
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "upgrade": "yarn up \"*\" \"@*/*\""
   },
   "jest": {
     "verbose": true,
