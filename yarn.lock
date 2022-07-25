@@ -1079,23 +1079,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ryunen344/danger-plugin-jacoco@workspace:."
   dependencies:
-    "@types/jest": ^27.5.0
-    "@types/node": ^17.0.31
-    "@typescript-eslint/eslint-plugin": ^5.23.0
-    "@typescript-eslint/parser": ^5.23.0
-    danger: ^11.0.5
-    eslint: ^8.15.0
-    eslint-config-prettier: ^8.5.0
+    "@types/jest": 27.5.0
+    "@types/node": 17.0.31
+    "@typescript-eslint/eslint-plugin": 5.23.0
+    "@typescript-eslint/parser": 5.23.0
+    danger: 11.0.5
+    eslint: 8.15.0
+    eslint-config-prettier: 8.5.0
     fast-xml-parser: ^4.0.7
-    jest: ^28.1.0
-    prettier: ^2.6.2
-    ts-jest: ^28.0.2
-    ts-node: ^10.7.0
-    tsc-alias: ^1.6.7
-    tsconfig-paths: ^4.0.0
+    jest: 28.1.0
+    prettier: 2.6.2
+    ts-jest: 28.0.2
+    ts-node: 10.7.0
+    tsc-alias: 1.6.7
+    tsconfig-paths: 4.0.0
     tslog: ^3.3.3
-    typedoc: ^0.22.15
-    typescript: ^4.6.4
+    typedoc: 0.22.15
+    typescript: 4.6.4
   languageName: unknown
   linkType: soft
 
@@ -1234,7 +1234,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^27.5.0":
+"@types/jest@npm:27.5.0":
   version: 27.5.0
   resolution: "@types/jest@npm:27.5.0"
   dependencies:
@@ -1258,7 +1258,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.31":
+"@types/node@npm:17.0.31":
   version: 17.0.31
   resolution: "@types/node@npm:17.0.31"
   checksum: 704618350f8420d5c47db0f7778398e821b7724369946f5c441a7e6b9343295553936400eb8309f0b07d5e39c240988ab3456b983712ca86265dabc9aee4ad3d
@@ -1295,7 +1295,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.23.0":
+"@typescript-eslint/eslint-plugin@npm:5.23.0":
   version: 5.23.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.23.0"
   dependencies:
@@ -1318,7 +1318,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.23.0":
+"@typescript-eslint/parser@npm:5.23.0":
   version: 5.23.0
   resolution: "@typescript-eslint/parser@npm:5.23.0"
   dependencies:
@@ -2094,7 +2094,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"danger@npm:^11.0.5":
+"danger@npm:11.0.5":
   version: 11.0.5
   resolution: "danger@npm:11.0.5"
   dependencies:
@@ -2394,7 +2394,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.5.0":
+"eslint-config-prettier@npm:8.5.0":
   version: 8.5.0
   resolution: "eslint-config-prettier@npm:8.5.0"
   peerDependencies:
@@ -2450,7 +2450,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.15.0":
+"eslint@npm:8.15.0":
   version: 8.15.0
   resolution: "eslint@npm:8.15.0"
   dependencies:
@@ -3780,7 +3780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^28.1.0":
+"jest@npm:28.1.0":
   version: 28.1.0
   resolution: "jest@npm:28.1.0"
   dependencies:
@@ -4711,7 +4711,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.6.2":
+"prettier@npm:2.6.2":
   version: 2.6.2
   resolution: "prettier@npm:2.6.2"
   bin:
@@ -5396,7 +5396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^28.0.2":
+"ts-jest@npm:28.0.2":
   version: 28.0.2
   resolution: "ts-jest@npm:28.0.2"
   dependencies:
@@ -5429,7 +5429,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.7.0":
+"ts-node@npm:10.7.0":
   version: 10.7.0
   resolution: "ts-node@npm:10.7.0"
   dependencies:
@@ -5467,7 +5467,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsc-alias@npm:^1.6.7":
+"tsc-alias@npm:1.6.7":
   version: 1.6.7
   resolution: "tsc-alias@npm:1.6.7"
   dependencies:
@@ -5483,7 +5483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfig-paths@npm:^4.0.0":
+"tsconfig-paths@npm:4.0.0":
   version: 4.0.0
   resolution: "tsconfig-paths@npm:4.0.0"
   dependencies:
@@ -5551,7 +5551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.22.15":
+"typedoc@npm:0.22.15":
   version: 0.22.15
   resolution: "typedoc@npm:0.22.15"
   dependencies:
@@ -5568,7 +5568,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.4":
+"typescript@npm:4.6.4":
   version: 4.6.4
   resolution: "typescript@npm:4.6.4"
   bin:
@@ -5578,7 +5578,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.6.4#~builtin<compat/typescript>":
   version: 4.6.4
   resolution: "typescript@patch:typescript@npm%3A4.6.4#~builtin<compat/typescript>::version=4.6.4&hash=bda367"
   bin:
