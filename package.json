@@ -1,6 +1,6 @@
 {
   "name": "@ryunen344/danger-plugin-jacoco",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Dnager JS plugin for jacoco",
   "author": "RyuNen344",
   "repository": "https://github.com/RyuNen344/danger-plugin-jacoco",
