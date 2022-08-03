@@ -11,3 +11,4 @@ test/
 .yarnrc.yml
 tsconfig.json
 tsconfig.build.json
+renovate.json
