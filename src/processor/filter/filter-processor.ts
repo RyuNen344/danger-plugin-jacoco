@@ -13,8 +13,7 @@ export class FilterProcessor {
     public static extractCoverage(option: Option, projectCoverage: ProjectCoverage): Coverage[] {
         const packageExcluded = this.filterPackage(option.excludePackages, projectCoverage);
         const displayFiles: string[] = [...danger.git.created_files, ...danger.git.modified_files]
-            .filter((e) => e.endsWith(".kt") || e.endsWith(".java") || e.endsWith(".scala"))
-            .map((e) => e.split("/")[e.split("/").length - 1]);
+            .filter((e) => e.endsWith(".kt") || e.endsWith(".java") || e.endsWith(".scala"));
 
         switch (option.exportUnit) {
             case EXPORT_UNIT.PACKAGE:
@@ -38,9 +37,7 @@ export class FilterProcessor {
         packageCoverages: PackageCoverage[]
     ): Coverage[] {
         if (isEnabledFileNameFilter) {
-            return packageCoverages.filter((p) =>
-                p.sourceFiles.map((f) => f.name).forEach((e) => displayFiles.includes(e))
-            );
+            return packageCoverages.filter((p) => displayFiles.find((v) => v.includes(p.name)));
         } else {
             return packageCoverages;
         }
@@ -53,7 +50,7 @@ export class FilterProcessor {
     ): Coverage[] {
         const sourceFileCoverages = packageCoverages.flatMap((e) => e.sourceFiles);
         if (isEnabledFileNameFilter) {
-            return sourceFileCoverages.filter((e) => displayFiles.includes(e.name));
+            return sourceFileCoverages.filter((e) => displayFiles.map((e) => e.split("/")[e.split("/").length - 1]).includes(e.name.split("/")[e.name.split("/").length - 1]));
         } else {
             return sourceFileCoverages;
         }
@@ -66,7 +63,7 @@ export class FilterProcessor {
     ): Coverage[] {
         const classCoverages = packageCoverages.flatMap((e) => e.classes);
         if (isEnabledFileNameFilter) {
-            return classCoverages.filter((e) => e.sourceFileName != null && displayFiles.includes(e.sourceFileName));
+            return classCoverages.filter((e) => e.sourceFileName != null && displayFiles.map((e) => e.split("/")[e.split("/").length - 1]).includes(e.sourceFileName));
         } else {
             return classCoverages;
         }
@@ -78,10 +75,9 @@ export class FilterProcessor {
         packageCoverages: PackageCoverage[]
     ): Coverage[] {
         const classCoverages = packageCoverages.flatMap((e) => e.classes);
-
         if (isEnabledFileNameFilter) {
             return classCoverages
-                .filter((e) => e.sourceFileName != null && displayFiles.includes(e.sourceFileName))
+                .filter((e) => e.sourceFileName != null && displayFiles.map((e) => e.split("/")[e.split("/").length - 1]).includes(e.sourceFileName))
                 .flatMap((e) => e.methods);
         } else {
             return classCoverages.flatMap((e) => e.methods);
