@@ -1083,7 +1083,7 @@ __metadata:
     "@types/node": 17.0.31
     "@typescript-eslint/eslint-plugin": 5.23.0
     "@typescript-eslint/parser": 5.23.0
-    danger: 11.0.5
+    danger: 11.1.2
     eslint: 8.15.0
     eslint-config-prettier: 8.5.0
     fast-xml-parser: ^4.0.7
@@ -2094,9 +2094,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"danger@npm:11.0.5":
-  version: 11.0.5
-  resolution: "danger@npm:11.0.5"
+"danger@npm:11.1.2":
+  version: 11.1.2
+  resolution: "danger@npm:11.1.2"
   dependencies:
     "@octokit/rest": ^18.12.0
     async-retry: 1.2.3
@@ -2145,7 +2145,7 @@ __metadata:
     danger-process: distribution/commands/danger-process.js
     danger-reset-status: distribution/commands/danger-reset-status.js
     danger-runner: distribution/commands/danger-runner.js
-  checksum: d995d74abebaeb398c0dd7a63885145312fe7cdb88c460e05e354ded970c31c1fa5af16f28d2e65463373a99951af19f4655d72ffd596dd2e29e5dd41adfae4f
+  checksum: 46ffbe6a79fcb0c4791406089bfa793f8de9d15d0282027ac35e22da98ebd7cf4f9953fae495f9b748fc51b4872d51e3389546881493e196f29c0d14afbf2de4
   languageName: node
   linkType: hard
 
