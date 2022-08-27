@@ -18,7 +18,7 @@
     "npm": "⚠️ plz use yarn instead ⚠️",
     "node": ">=16.14.0"
   },
-  "packageManager": "yarn@3.2.0",
+  "packageManager": "yarn@3.2.3",
   "scripts": {
     "build": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "build:dev": "ts-node -r tsconfig-paths/register ./src/index.ts",
