@@ -1108,7 +1108,7 @@ __metadata:
     prettier: 2.7.1
     ts-jest: 28.0.7
     ts-node: 10.9.1
-    tsc-alias: 1.6.7
+    tsc-alias: 1.8.5
     tsconfig-paths: 4.0.0
     tslog: ^3.3.3
     typedoc: 0.23.11
@@ -5532,9 +5532,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsc-alias@npm:1.6.7":
-  version: 1.6.7
-  resolution: "tsc-alias@npm:1.6.7"
+"tsc-alias@npm:1.8.5":
+  version: 1.8.5
+  resolution: "tsc-alias@npm:1.8.5"
   dependencies:
     chokidar: ^3.5.3
     commander: ^9.0.0
@@ -5544,7 +5544,7 @@ __metadata:
     plimit-lit: ^1.2.6
   bin:
     tsc-alias: dist/bin/index.js
-  checksum: 2404141e31924a64649f9f1da03ca5adddd8e044fe8e685e1a536e08fde434529a9d1fca07197496c5c8de02c3bf290dc720712c880e0be496d0662cecfba321
+  checksum: 9b92f4141e2d388bd248d3bb362fa48e1bab7a350004ec000016375ca779632d6c6eac53f2a2d92284152cc42dabdf1d9e70162da5a5eb691d93e161d5ed65d2
   languageName: node
   linkType: hard
 
