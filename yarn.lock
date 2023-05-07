@@ -5673,11 +5673,11 @@ __metadata:
   linkType: hard
 
 "tslog@npm:^3.3.3":
-  version: 3.3.3
-  resolution: "tslog@npm:3.3.3"
+  version: 3.3.4
+  resolution: "tslog@npm:3.3.4"
   dependencies:
     source-map-support: ^0.5.21
-  checksum: ae84f4056865ad2d5a1f33d491387e4fd6c24642a08ccc29b8fcebce20784e94ef8b5863df5a5f85ec881125abc2b6b8b3aa022d2401a3716643332158346720
+  checksum: c830921239dfb0e1fd8b4733710b6d3a7e49d1c2890481a49b0f3396c86e913a2db2bbafc6be7afcc305ef4e8503b5cb58817bc770c969fef67758a1f764871b
   languageName: node
   linkType: hard
 
