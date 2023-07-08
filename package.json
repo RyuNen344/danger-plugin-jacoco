@@ -16,7 +16,7 @@
   "license": "MIT",
   "engines": {
     "npm": "⚠️ plz use yarn instead ⚠️",
-    "node": ">=16.14.0"
+    "node": ">=18.16.1"
   },
   "packageManager": "yarn@3.6.1",
   "scripts": {
