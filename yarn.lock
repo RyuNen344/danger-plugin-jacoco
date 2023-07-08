@@ -1213,7 +1213,7 @@ __metadata:
     ts-node: 10.9.1
     tsc-alias: 1.8.7
     tsconfig-paths: 4.2.0
-    tslog: ^3.3.3
+    tslog: ^4.0.0
     typedoc: 0.24.4
     typescript: 5.1.6
   languageName: unknown
@@ -5326,16 +5326,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.21":
-  version: 0.5.21
-  resolution: "source-map-support@npm:0.5.21"
-  dependencies:
-    buffer-from: ^1.0.0
-    source-map: ^0.6.0
-  checksum: 43e98d700d79af1d36f859bdb7318e601dfc918c7ba2e98456118ebc4c4872b327773e5a1df09b0524e9e5063bb18f0934538eace60cca2710d1fa687645d137
-  languageName: node
-  linkType: hard
-
 "source-map@npm:^0.5.0":
   version: 0.5.7
   resolution: "source-map@npm:0.5.7"
@@ -5674,12 +5664,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslog@npm:^3.3.3":
-  version: 3.3.4
-  resolution: "tslog@npm:3.3.4"
-  dependencies:
-    source-map-support: ^0.5.21
-  checksum: c830921239dfb0e1fd8b4733710b6d3a7e49d1c2890481a49b0f3396c86e913a2db2bbafc6be7afcc305ef4e8503b5cb58817bc770c969fef67758a1f764871b
+"tslog@npm:^4.0.0":
+  version: 4.8.2
+  resolution: "tslog@npm:4.8.2"
+  checksum: 04d2c2c68be53578b090ff1729b08ee23f3b5c8c509d6ffa332c43d25bcb9599ede8cce1db2c9dcb29ea3647b21c47c1ba11180ee9652a03c901702199dc87cd
   languageName: node
   linkType: hard
 
