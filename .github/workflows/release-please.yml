@@ -11,31 +11,26 @@ permissions:
 
 jobs:
   release-please:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@c078ea33917ab8cfa5300e48f4b7e6b16606aede # v3
         id: release
         with:
           default-branch: main
-          release-type: simple
+          release-type: node
           package-name: release-please-action
           include-v-in-tag: false
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         if: ${{ steps.release.outputs.release_created }}
+      - run: rm -rf dist
+        if: ${{ steps.release.outputs.release_created }}
       - uses: ./.github/actions/yarn
         if: ${{ steps.release.outputs.release_created }}
-      - uses: nick-fields/retry@943e742917ac94714d2f408a0e8320f2d1fcafcd # v2.8.3
+      - run: yarn build
         if: ${{ steps.release.outputs.release_created }}
+      - run: yarn publish
         env:
-          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-          PGP_KEY_ID: ${{ secrets.PGP_KEY_ID }}
-          PGP_SIGNING_KEY: ${{ secrets.PGP_SIGNING_KEY }}
-          PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
-        with:
-          max_attempts: 3
-          retry_on: error
-          timeout_minutes: 40
-          command: ./gradlew publishAllPublicationsToSonatypeRepository closeAndReleaseSonatypeStagingRepository --stacktrace
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: ${{ steps.release.outputs.release_created }}
