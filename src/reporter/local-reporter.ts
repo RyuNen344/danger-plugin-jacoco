@@ -1,9 +1,11 @@
 import { MarkdownString } from "@/model/markdown/markdown";
 import { Reporter } from "@/reporter/reporter";
-import { Logger } from "tslog";
+import { ILogObj, Logger } from "tslog";
 
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 export class LocalReporter implements Reporter {
-    private readonly log: Logger = new Logger();
+    private readonly log: Logger<ILogObj> = new Logger();
 
     markdown(message: MarkdownString): void {
         this.log.debug(message);

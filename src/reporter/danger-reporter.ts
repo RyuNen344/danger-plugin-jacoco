@@ -28,7 +28,7 @@ export class DangerReporter implements Reporter {
         if (isError(error)) {
             if ("cause" in error) {
                 // es2022
-                fail(error.cause?.message != null ? error.cause?.message : "error occured");
+                fail(error.cause != null ? error.cause.toString() : "error occured");
 
                 return;
             }
