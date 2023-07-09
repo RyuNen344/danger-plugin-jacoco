@@ -1,0 +1,26 @@
+name: Check PR
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+
+permissions:
+  issues: write
+  pull-requests: write
+  statuses: write
+
+jobs:
+  check:
+    name: check lint and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+      - uses: ./.github/actions/yarn
+      - name: run lint
+        shell: bash
+        run: |
+          yarn lint
+      - name: run test
+        shell: bash
+        run: |
+          yarn coverage
