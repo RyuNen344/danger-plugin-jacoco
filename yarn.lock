@@ -1219,7 +1219,7 @@ __metadata:
     "@types/node": 20.4.2
     "@typescript-eslint/eslint-plugin": 5.61.0
     "@typescript-eslint/parser": 6.2.1
-    danger: 11.2.6
+    danger: 11.2.8
     eslint: 8.46.0
     eslint-config-prettier: 8.8.0
     fast-xml-parser: ^4.0.7
@@ -2360,9 +2360,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"danger@npm:11.2.6":
-  version: 11.2.6
-  resolution: "danger@npm:11.2.6"
+"danger@npm:11.2.8":
+  version: 11.2.8
+  resolution: "danger@npm:11.2.8"
   dependencies:
     "@gitbeaker/node": ^21.3.0
     "@octokit/rest": ^18.12.0
@@ -2411,7 +2411,7 @@ __metadata:
     danger-process: distribution/commands/danger-process.js
     danger-reset-status: distribution/commands/danger-reset-status.js
     danger-runner: distribution/commands/danger-runner.js
-  checksum: 606b92bce7618edc5d7d1500c5108d57ee86fd9d81d385c45b9acba5aac46e97c81c0687392ad117c296a581afb55c8e729d8ba283b770f1c6e7747be07fdaf4
+  checksum: cacc0d258122018ad4c7c15cb8837245ecd01e5adc94dd6240528c4695fa92c4c551f1728ee382a5e9c133818e9d2331cd0e8b0223c0706bb6c711bbce1a7838
   languageName: node
   linkType: hard
 
