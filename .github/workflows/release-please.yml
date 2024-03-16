@@ -22,7 +22,7 @@ jobs:
           include-v-in-tag: false
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v3
+      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v3
         if: ${{ steps.release.outputs.release_created }}
       - run: rm -rf dist
         if: ${{ steps.release.outputs.release_created }}
