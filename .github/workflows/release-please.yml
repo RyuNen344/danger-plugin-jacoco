@@ -15,13 +15,6 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@e4dc86ba9405554aeba3c6bb2d169500e7d3b4ee # v3
         id: release
-        with:
-          default-branch: main
-          release-type: node
-          package-name: release-please-action
-          include-v-in-tag: false
-          bump-minor-pre-major: true
-          bump-patch-for-minor-pre-major: true
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v3
         if: ${{ steps.release.outputs.release_created }}
       - run: rm -rf dist
