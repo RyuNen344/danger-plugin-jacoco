@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6](https://github.com/RyuNen344/danger-plugin-jacoco/compare/0.0.5...0.0.6) (2025-04-11)
+
+
+### Chores
+
+* update release-please configs ([#230](https://github.com/RyuNen344/danger-plugin-jacoco/issues/230)) ([c2e4314](https://github.com/RyuNen344/danger-plugin-jacoco/commit/c2e431462b3a091f6b0291a8c7625dc53d9fea5b))
+
 ## [0.0.5](https://github.com/RyuNen344/danger-plugin-jacoco/compare/0.0.4...0.0.5) (2023-07-09)
 
 
