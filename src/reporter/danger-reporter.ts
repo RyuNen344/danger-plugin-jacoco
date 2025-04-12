@@ -18,7 +18,7 @@ export class DangerReporter implements Reporter {
     }
     error(message: string): void;
     error(error: Error): void;
-    error(error: string | Error | unknown): void {
+    error(error: unknown): void {
         if (typeof error === "string") {
             fail(error);
 
@@ -28,6 +28,7 @@ export class DangerReporter implements Reporter {
         if (isError(error)) {
             if ("cause" in error) {
                 // es2022
+                // eslint-disable-next-line @typescript-eslint/no-base-to-string
                 fail(error.cause != null ? error.cause.toString() : "error occured");
 
                 return;
