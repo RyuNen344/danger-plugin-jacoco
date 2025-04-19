@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.0.7](https://github.com/RyuNen344/danger-plugin-jacoco/compare/0.0.6...0.0.7) (2025-04-19)
+
+
+### Dependency Updates
+
+* bump @types/jest from 29.5.12 to 29.5.14 ([#236](https://github.com/RyuNen344/danger-plugin-jacoco/issues/236)) ([4973c8b](https://github.com/RyuNen344/danger-plugin-jacoco/commit/4973c8bee55c2684adcf3ffee1743511ac1881d7))
+* bump @types/node from 18.16.1 to 18.19.86 ([#254](https://github.com/RyuNen344/danger-plugin-jacoco/issues/254)) ([461ec36](https://github.com/RyuNen344/danger-plugin-jacoco/commit/461ec36cbc28427875b782e966e8cdd836f95bd1))
+* bump @typescript-eslint/eslint-plugin from 8.29.1 to 8.30.1 ([#248](https://github.com/RyuNen344/danger-plugin-jacoco/issues/248)) ([5fb9e2c](https://github.com/RyuNen344/danger-plugin-jacoco/commit/5fb9e2c9413fff17cbc957cb96108207a19a91e5))
+* bump @typescript-eslint/parser from 8.29.1 to 8.30.1 ([#252](https://github.com/RyuNen344/danger-plugin-jacoco/issues/252)) ([31efb1d](https://github.com/RyuNen344/danger-plugin-jacoco/commit/31efb1de09f547888b9a3baab2ec663ee69fdb38))
+* bump danger from 11.3.1 to 13.0.4 ([#245](https://github.com/RyuNen344/danger-plugin-jacoco/issues/245)) ([762d91c](https://github.com/RyuNen344/danger-plugin-jacoco/commit/762d91c28301d4e92a24577dd209b35cce64c132))
+* bump eslint from 8.57.0 to 9.24.0 ([#226](https://github.com/RyuNen344/danger-plugin-jacoco/issues/226)) ([a6c7921](https://github.com/RyuNen344/danger-plugin-jacoco/commit/a6c7921b0da775a4f84cb81b18406f6510b937ba))
+* bump eslint from 9.24.0 to 9.25.0 ([#250](https://github.com/RyuNen344/danger-plugin-jacoco/issues/250)) ([e4bf1fc](https://github.com/RyuNen344/danger-plugin-jacoco/commit/e4bf1fcef5ed2e5f6d2ffde9c253439126861b92))
+* bump eslint-config-prettier from 9.1.0 to 10.1.2 ([#237](https://github.com/RyuNen344/danger-plugin-jacoco/issues/237)) ([da513f3](https://github.com/RyuNen344/danger-plugin-jacoco/commit/da513f3e89b510cb64153a24fac70a81370b4220))
+* bump prettier from 3.2.5 to 3.5.3 ([#246](https://github.com/RyuNen344/danger-plugin-jacoco/issues/246)) ([da8a9da](https://github.com/RyuNen344/danger-plugin-jacoco/commit/da8a9da0ce8c871cae375329639f9642ebcfa3b7))
+* bump ts-jest from 29.3.0 to 29.3.2 ([#243](https://github.com/RyuNen344/danger-plugin-jacoco/issues/243)) ([3689f3b](https://github.com/RyuNen344/danger-plugin-jacoco/commit/3689f3b7db22b9cbe707c03a418cf3232a40b295))
+* bump tsc-alias from 1.8.8 to 1.8.15 ([#249](https://github.com/RyuNen344/danger-plugin-jacoco/issues/249)) ([3aad5ee](https://github.com/RyuNen344/danger-plugin-jacoco/commit/3aad5ee7032e0bbf99f6db917c73f63f5a3fe866))
+* bump tslog from 4.9.2 to 4.9.3 ([#244](https://github.com/RyuNen344/danger-plugin-jacoco/issues/244)) ([9ea25cf](https://github.com/RyuNen344/danger-plugin-jacoco/commit/9ea25cf8adb12993a04b144913ca74c93d0a4c1b))
+* bump typedoc from 0.25.13 to 0.28.2 ([#242](https://github.com/RyuNen344/danger-plugin-jacoco/issues/242)) ([1b5b82a](https://github.com/RyuNen344/danger-plugin-jacoco/commit/1b5b82aa30b72edfad077ae989a12a9212040552))
+
+
+### Chores
+
+* bump yarn version ([#253](https://github.com/RyuNen344/danger-plugin-jacoco/issues/253)) ([5ef35e2](https://github.com/RyuNen344/danger-plugin-jacoco/commit/5ef35e2a1db7a85e573335a7acf82d942fb0b0a4))
+* Update .node-version ([#247](https://github.com/RyuNen344/danger-plugin-jacoco/issues/247)) ([a2d988c](https://github.com/RyuNen344/danger-plugin-jacoco/commit/a2d988cf953eace06b96e94fed30738a8c028845))
+* update release-please.yml ([#241](https://github.com/RyuNen344/danger-plugin-jacoco/issues/241)) ([80141c0](https://github.com/RyuNen344/danger-plugin-jacoco/commit/80141c08d0929a4c332c8578c757ab121ac9009f))
+
 ## [0.0.6](https://github.com/RyuNen344/danger-plugin-jacoco/compare/0.0.5...0.0.6) (2025-04-11)
 
 
