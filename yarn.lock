@@ -6196,9 +6196,9 @@ __metadata:
   linkType: hard
 
 "tslog@npm:^4.0.0":
-  version: 4.9.2
-  resolution: "tslog@npm:4.9.2"
-  checksum: 702e45647a68b127d63c5eb63a0f322af8d01f17b689127d32238d6ca2ef76889648a00b88c040430e3126acedef070022b20ebd81823879ba3766cf5188c868
+  version: 4.9.3
+  resolution: "tslog@npm:4.9.3"
+  checksum: 78e73f13a6bd508d6337e4847bf18f3c6f992ce83b76fa7dbbd8404f8b79e4c3001db4d96c7b9eb74e2af93f2a5eb6276b908533a898e17cbdce2c88b1d36536
   languageName: node
   linkType: hard
 
