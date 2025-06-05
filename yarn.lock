@@ -1538,7 +1538,7 @@ __metadata:
     tsc-alias: 1.8.16
     tsconfig-paths: 4.2.0
     tslog: ^4.0.0
-    typedoc: 0.28.4
+    typedoc: 0.28.5
     typescript: 5.8.3
   languageName: unknown
   linkType: soft
@@ -6144,9 +6144,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:0.28.4":
-  version: 0.28.4
-  resolution: "typedoc@npm:0.28.4"
+"typedoc@npm:0.28.5":
+  version: 0.28.5
+  resolution: "typedoc@npm:0.28.5"
   dependencies:
     "@gerrit0/mini-shiki": ^3.2.2
     lunr: ^2.3.9
@@ -6157,7 +6157,7 @@ __metadata:
     typescript: 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x
   bin:
     typedoc: bin/typedoc
-  checksum: 97db34dfd9fddf9437fd40ab0c3a17031fd02c5bba398701a237404cf12da554709314f7eababee8a7fbcbc54ccea1a302d57b591e731f0342844e2a2827ea3a
+  checksum: da12797db2a01397973004964037c629a799eb6de12f9c074e4b4e08b06c3c8c85f82d5cd663198fd267f7f759368550fd094a25c479736c67c3d8e7a0a42e89
   languageName: node
   linkType: hard
 
