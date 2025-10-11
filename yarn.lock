@@ -1701,7 +1701,7 @@ __metadata:
   resolution: "@ryunen344/danger-plugin-jacoco@workspace:."
   dependencies:
     "@types/jest": 30.0.0
-    "@types/node": 18.19.111
+    "@types/node": 24.7.1
     "@typescript-eslint/eslint-plugin": ^8.29.1
     "@typescript-eslint/parser": ^8.28.0
     danger: ^13.0.4
@@ -1947,12 +1947,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.19.111":
-  version: 18.19.111
-  resolution: "@types/node@npm:18.19.111"
+"@types/node@npm:24.7.1":
+  version: 24.7.1
+  resolution: "@types/node@npm:24.7.1"
   dependencies:
-    undici-types: ~5.26.4
-  checksum: 0696f422bf8c70e01255397767cea2938287d819e5ac92242f0e5629ab69f25ac22c811d0f4f3ae727c6b4f678f88737aa568b17404047cfcf3ea2b1f47786b3
+    undici-types: ~7.14.0
+  checksum: 4e3367dd7ab7328aca1ea96451469baca16af0f5b0dd9fa0c8726b410973b2f72087b7e649c9040b91602ec2119efe68552a29403a7251e31e3c3ffbb476c356
   languageName: node
   linkType: hard
 
@@ -6641,10 +6641,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~5.26.4":
-  version: 5.26.5
-  resolution: "undici-types@npm:5.26.5"
-  checksum: 3192ef6f3fd5df652f2dc1cd782b49d6ff14dc98e5dced492aa8a8c65425227da5da6aafe22523c67f035a272c599bb89cfe803c1db6311e44bed3042fc25487
+"undici-types@npm:~7.14.0":
+  version: 7.14.0
+  resolution: "undici-types@npm:7.14.0"
+  checksum: bd28cb36b33a51359f02c27b84bfe8563cdad57bdab0aa6ac605ce64d51aff49fd0aa4cb2d3b043caaa93c3ec42e96b5757df5d2d9bcc06a5f3e71899c765035
   languageName: node
   linkType: hard
 
